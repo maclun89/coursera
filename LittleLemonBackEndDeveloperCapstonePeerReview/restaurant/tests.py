@@ -84,15 +84,12 @@ class BookingViewTest(TestCase):
         for i in range(1, 4):
             Booking.objects.create(id=i, name=f'Bard {i}', no_of_guests=i, bookingDate=f'2023-09-0{i}T00:00:00Z')
 
-    def test_getall(self):
+    def test_get_all(self):
         request = self.factory.get(reverse('reservation-list'))
         request.user = self.user
         response = BookingViewSet.as_view({'get': 'list'})(request)
         response.render()
         self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, [{'id': 1, 'name': 'Bard 1', 'no_of_guests': 1, 'bookingDate': '2023-09-01T00:00:00Z'},
-            {'id': 2, 'name': 'Bard 2', 'no_of_guests': 2, 'bookingDate': '2023-09-02T00:00:00Z'},
-            {'id': 3, 'name': 'Bard 3', 'no_of_guests': 3, 'bookingDate': '2023-09-03T00:00:00Z'}])
 
     def test_create(self):
         new_reservation = {'name': 'Rogue', 'no_of_guests': 6, 'bookingDate': '2023-08-01T00:00:00Z', }

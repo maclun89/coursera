@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "LittleLemonRestaurant",
+    "restaurant",
     "rest_framework.authtoken",
     "djoser",
 ]
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "LittleLemon.urls"
+ROOT_URLCONF = "littlelemon.urls"
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "LittleLemon.wsgi.application"
+WSGI_APPLICATION = "littlelemon.wsgi.application"
 
 
 # Database
@@ -79,9 +79,18 @@ WSGI_APPLICATION = "LittleLemon.wsgi.application"
 
 
 DATABASES = {
-    'default': {
+
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    },
+
+}
+
+"""
+'default_mysql': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'LittleLemon',
+        'NAME': 'littlelemon',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
@@ -89,14 +98,8 @@ DATABASES = {
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
-    },
-    "default_local": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
     }
-}
-
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
