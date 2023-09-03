@@ -21,8 +21,8 @@ class MenuViewTest(TestCase):
         response.render()
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(response.content, [{'id': 1, 'title': 'Cheeseburger 1', 'price': '8.50', 'inventory': 1},
-            {'id': 2, 'title': 'Cheeseburger 2', 'price': '9.00', 'inventory': 2},
-            {'id': 3, 'title': 'Cheeseburger 3', 'price': '9.50', 'inventory': 3}])
+                                                {'id': 2, 'title': 'Cheeseburger 2', 'price': '9.00', 'inventory': 2},
+                                                {'id': 3, 'title': 'Cheeseburger 3', 'price': '9.50', 'inventory': 3}])
 
     def test_create(self):
         new_menuitem = {'title': 'Tortilla', 'price': 4.5, 'inventory': 8, }
@@ -86,8 +86,8 @@ class BookingViewTest(TestCase):
         response.render()
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(response.content, [{'id': 1, 'name': 'Bard 1', 'no_of_guests': 1, 'bookingDate': '2023-09-01T00:00:00Z'},
-            {'id': 2, 'name': 'Bard 2', 'no_of_guests': 2, 'bookingDate': '2023-09-02T00:00:00Z'},
-            {'id': 3, 'name': 'Bard 3', 'no_of_guests': 3, 'bookingDate': '2023-09-03T00:00:00Z'}])
+                                                {'id': 2, 'name': 'Bard 2', 'no_of_guests': 2, 'bookingDate': '2023-09-02T00:00:00Z'},
+                                                {'id': 3, 'name': 'Bard 3', 'no_of_guests': 3, 'bookingDate': '2023-09-03T00:00:00Z'}])
 
     def test_create(self):
         new_reservation = {'name': 'Rogue', 'no_of_guests': 6, 'bookingDate': '2023-08-01T00:00:00Z', }
