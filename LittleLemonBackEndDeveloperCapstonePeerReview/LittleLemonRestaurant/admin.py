@@ -3,9 +3,5 @@ from .models import Booking, Category, MenuItem, Cart, Order, OrderItem
 
 
 # Register your models here.
-admin.site.register([Booking, MenuItem])
-admin.site.register(Category)
-admin.site.register(Cart)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+admin.site.register([Booking, MenuItem, Category, Cart, Order, OrderItem])
 
