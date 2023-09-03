@@ -1,11 +1,10 @@
 from django.contrib import admin
-from LittleLemonDRF.models import  Category,MenuItem,Cart,Order,OrderItem
+from LittleLemonDRF.models import Booking, Category, MenuItem, Cart, Order, OrderItem
 
 
 # Register your models here.
-
+admin.site.register([Booking, MenuItem])
 admin.site.register(Category)
-admin.site.register(MenuItem)
 admin.site.register(Cart)
 admin.site.register(Order)
 admin.site.register(OrderItem)
