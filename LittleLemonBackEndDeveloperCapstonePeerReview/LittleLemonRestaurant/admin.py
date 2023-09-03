@@ -1,5 +1,5 @@
 from django.contrib import admin
-from LittleLemonDRF.models import Booking, Category, MenuItem, Cart, Order, OrderItem
+from .models import Booking, Category, MenuItem, Cart, Order, OrderItem
 
 
 # Register your models here.

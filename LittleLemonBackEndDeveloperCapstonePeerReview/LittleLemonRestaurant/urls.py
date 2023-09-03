@@ -1,12 +1,13 @@
-from django.urls import path
+from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+
 from . import views
+from .views import BookingViewSet
 
-urlpatterns = [
-    path('', views.index, name='index'),
-    path('items/', views.MenuItemView.as_view(), name='menu-items'),
-    path('items/<int:pk>/', views.SingleMenuItemView.as_view(), name='menu-single-item'),
-    path('category/',views.CategoryView.as_view()),
-    path('orders/',views.OrderView.as_view()),
-    path('cart/menu-items/',views.CartView.as_view()),
+router = DefaultRouter()
+router.register(r'tables', BookingViewSet, basename='reservation')
 
-]
+urlpatterns = [path('', views.index, name='index'), path('restaurant/menu/items/', views.MenuItemView.as_view(), name='menu-items'),
+    path('restaurant/menu/items/<int:pk>/', views.SingleMenuItemView.as_view(), name='menu-single-item'),
+    path('restaurant/menu/category/', views.CategoryView.as_view()), path('restaurant/menu/orders/', views.OrderView.as_view()),
+    path('restaurant/menu/cart/menu-items/', views.CartView.as_view()), path('restaurant/booking/', include(router.urls)), ]

@@ -2,8 +2,8 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
-from models import Booking, MenuItem
-from views import BookingViewSet, MenuItemView, SingleMenuItemView
+from .models import Booking, MenuItem
+from .views import BookingViewSet, MenuItemView, SingleMenuItemView
 
 
 class MenuItemTest(TestCase):
